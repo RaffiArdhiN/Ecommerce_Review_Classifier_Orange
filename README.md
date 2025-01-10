@@ -1,6 +1,6 @@
 # Klasifikasi Sentimen
 
-![Header Image](images/header.png)
+![Header Image](header.png)
 
 ## Deskripsi Proyek
 
@@ -26,7 +26,7 @@ Proyek ini menggunakan berbagai model pembelajaran mesin dan platform Orange unt
   - Menghapus kata-kata umum yang tidak relevan untuk analisis sentimen.
 
 ### Model Pembelajaran Mesin
-![Model Training Workflow](images/model_training_workflow.png)
+![Model Training Workflow](workflow.png)
 - **SVM (Support Vector Machine)**:
   - Membagi data dengan hyperplane terbaik.
 - **kNN (k-Nearest Neighbor)**:
