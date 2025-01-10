@@ -1,42 +1,70 @@
-# Sentiment Analysis
+# Klasifikasi Sentimen
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+![Header Image](images/header.png)
 
-## Overview
+## Deskripsi Proyek
 
-The **Sentiment Analysis** project aims to analyze the sentiment (positive, negative, neutral) of textual data using natural language processing (NLP) techniques and machine learning models. This repository also includes an implementation of sentiment classification using **Orange Data Mining**, a visual programming tool for data analysis and machine learning.
+Proyek ini bertujuan untuk melakukan analisis sentimen terhadap komentar pengguna di platform e-commerce seperti Lazada, Shopee, dan Tokopedia. Data yang digunakan terdiri dari 400 komentar, yang diklasifikasikan berdasarkan rating produk:
 
----
+- **Rating 1-2**: Sentimen negatif  
+- **Rating 4-5**: Sentimen positif  
 
-## Features
-
-- **Text Preprocessing**: Includes tokenization, stopword removal, stemming, and lemmatization.
-- **Feature Extraction**: Utilizes techniques like TF-IDF and word embeddings.
-- **Machine Learning Models**: Implements algorithms like Naive Bayes, Logistic Regression, Support Vector Machines (SVM), and decision trees.
-- **Orange Data Mining Integration**: Provides a pipeline for sentiment classification using Orange workflows.
-- **Evaluation Metrics**: Measures accuracy, precision, recall, and F1-score for model performance.
-- **Dataset Support**: Works with various datasets, including custom datasets.
-- **Modular Design**: Easy to extend and customize.
+Proyek ini menggunakan berbagai model pembelajaran mesin dan platform Orange untuk klasifikasi sentimen.
 
 ---
 
-## Installation
+## Fitur Utama
 
-### Prerequisites
+### Pra-proses Data
+- **Transformasi**:
+  - Mengubah teks menjadi huruf kecil (*lowercase*).
+  - Menghapus aksen (contoh: é → e).
+  - Membersihkan elemen HTML dan URL.
+- **Tokenisasi**:
+  - Memisahkan teks menjadi token berbasis huruf dan angka.
+- **Stopwords Filtering**:
+  - Menghapus kata-kata umum yang tidak relevan untuk analisis sentimen.
 
-Ensure you have Python 3.8+ installed. You can download it from [Python.org](https://www.python.org/). Additionally, install Orange Data Mining from [Orange Website](https://orangedatamining.com/).
+### Model Pembelajaran Mesin
+![Model Training Workflow](images/model_training_workflow.png)
+- **SVM (Support Vector Machine)**:
+  - Membagi data dengan hyperplane terbaik.
+- **kNN (k-Nearest Neighbor)**:
+  - Klasifikasi berdasarkan jarak terdekat.
+- **Neural Network (NN)**:
+  - Terinspirasi dari jaringan saraf biologis.
+- **Naive Bayes**:
+  - Klasifikasi cepat dengan asumsi independensi fitur.
+- **SGD (Stochastic Gradient Descent)**:
+  - Optimasi iteratif pada dataset besar.
+- **AdaBoost**:
+  - Meningkatkan akurasi dengan kombinasi model sederhana.
 
-### Steps
+---
 
-1. Clone the repository:
+## Hasil Model dan Evaluasi
+| Model            | Akurasi | Waktu Training  | Catatan                         |
+|------------------|---------|-----------------|---------------------------------|
+| Neural Network   | 81%     | Lama            | Distribusi prediksi seimbang.  |
+| Naive Bayes      | 78%     | Cepat           | Cenderung memprediksi positif. |
+| SVM              | 75%     | Sedang          | Stabil.                        |
+| AdaBoost         | 74%     | Sedang          | Hasil rata-rata.               |
+| SGD              | 78%     | Lama            | Prediksi seimbang.             |
+| kNN              | 62%     | Cepat           | Lebih sering prediksi positif. |
+
+---
+
+## Instalasi dan Penggunaan
+
+1. **Kloning repositori**:
    ```bash
-   git clone https://github.com/RaffiArdhiN/SentimentAnalysis.git
-   cd SentimentAnalysis
-2. Create a virtual environment and activate it:
+   git clone https://github.com/RaffiArdhiN/Klasifikasi_Sentimen.git
+2. **Masuk ke direktori proyek**:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-3. Install Orange Data Mining:
-   ```bash
-   pip install orange3
+   cd Klasifikasi_Sentimen
+3. **Jalankan aplikasi**:
+   Gunakan Orange untuk membuka file alur kerja di orange_workflows/
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah lisensi MIT.
