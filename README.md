@@ -1,70 +1,79 @@
-# Klasifikasi Sentimen
+# Sentiment Classification Project
 
 ![Header Image](header.png)
 
-## Deskripsi Proyek
+## Project Description
 
-Proyek ini bertujuan untuk melakukan analisis sentimen terhadap komentar pengguna di platform e-commerce seperti Lazada, Shopee, dan Tokopedia. Data yang digunakan terdiri dari 400 komentar, yang diklasifikasikan berdasarkan rating produk:
-
-- **Rating 1-2**: Sentimen negatif  
-- **Rating 4-5**: Sentimen positif  
-
-Proyek ini menggunakan berbagai model pembelajaran mesin dan platform Orange untuk klasifikasi sentimen.
+This project implements a sentiment classification workflow for user reviews from e-commerce platforms. The analysis is conducted entirely using Orange, incorporating preprocessing, multiple machine learning models, and performance evaluation. Below is an overview of the project structure and methodology.
 
 ---
 
-## Fitur Utama
+## Workflow Overview
 
-### Pra-proses Data
-- **Transformasi**:
-  - Mengubah teks menjadi huruf kecil (*lowercase*).
-  - Menghapus aksen (contoh: é → e).
-  - Membersihkan elemen HTML dan URL.
-- **Tokenisasi**:
-  - Memisahkan teks menjadi token berbasis huruf dan angka.
-- **Stopwords Filtering**:
-  - Menghapus kata-kata umum yang tidak relevan untuk analisis sentimen.
+The workflow follows these key steps:
+1.  **Data Collection**: Extracted reviews from Lazada, Shopee, and Tokopedia.
+2.  **Data Preprocessing**: Applied techniques like tokenization, stopword removal, and data cleaning.
+3.  **Model Training**: Trained models using machine learning algorithms such as Support Vector Machines (SVM), k-Nearest Neighbors (kNN), Neural Networks, Naive Bayes, Stochastic Gradient Descent (SGD), and AdaBoost.
+4.  **Evaluation**: Evaluated models using accuracy, RMSE, and confusion matrices.
 
-### Model Pembelajaran Mesin
+---
+
+## Dataset Information
+
+- **Platforms**: Lazada, Shopee, Tokopedia.
+- **Dataset Size**: 400 user reviews.
+  - **Training Data**: 365 labeled reviews for model training.
+  - **Testing Data**: 35 manually scraped reviews for testing.
+- **Sentiment Labels**:
+  - **Ratings 1–2**: Negative Sentiment
+  - **Ratings 4–5**: Positive Sentiment
+
+---
+
+### Preprocessing Details
+
+- **Transformation**:
+  - Converted text to lowercase.
+  - Removed accents (e.g., é, ñ).
+  - Cleaned HTML elements.
+  - Removed URLs.
+- **Tokenization**:
+  - Split text into tokens based on alphanumeric patterns.
+- **Stopword Removal**:
+  - Removed common stopwords using the provided list (`combined_stop_words.txt`).
+
+---
+
+### Model Training and Performance
 ![Model Training Workflow](workflow.png)
-- **SVM (Support Vector Machine)**:
-  - Membagi data dengan hyperplane terbaik.
-- **kNN (k-Nearest Neighbor)**:
-  - Klasifikasi berdasarkan jarak terdekat.
-- **Neural Network (NN)**:
-  - Terinspirasi dari jaringan saraf biologis.
-- **Naive Bayes**:
-  - Klasifikasi cepat dengan asumsi independensi fitur.
-- **SGD (Stochastic Gradient Descent)**:
-  - Optimasi iteratif pada dataset besar.
-- **AdaBoost**:
-  - Meningkatkan akurasi dengan kombinasi model sederhana.
+
+| **Model**           | **Description**                                                            | **Accuracy** |
+|----------------------|----------------------------------------------------------------------------|--------------|
+| **SVM**             | Achieved good performance with balanced predictions.                      | 75%          |
+| **kNN**             | Tends to overpredict positive sentiment.                                  | 62%          |
+| **Neural Network**  | High accuracy but requires longer training times.                         | 81%          |
+| **Naive Bayes**     | Fast training with reliable results.                                       | 78%          |
+| **SGD**             | Accurate but required significant computational resources during training.| 78%          |
+| **AdaBoost**        | Balances performance across metrics; moderately resource-intensive.       | 74%          |
 
 ---
 
-## Hasil Model dan Evaluasi
-| Model            | Akurasi | Waktu Training  | Catatan                         |
-|------------------|---------|-----------------|---------------------------------|
-| Neural Network   | 81%     | Lama            | Distribusi prediksi seimbang.  |
-| Naive Bayes      | 78%     | Cepat           | Cenderung memprediksi positif. |
-| SVM              | 75%     | Sedang          | Stabil.                        |
-| AdaBoost         | 74%     | Sedang          | Hasil rata-rata.               |
-| SGD              | 78%     | Lama            | Prediksi seimbang.             |
-| kNN              | 62%     | Cepat           | Lebih sering prediksi positif. |
+## Contributors
+
+- **Raffi Ardhi Naufal**: Data Preprocessing and Tokenization
+- **Arya Aydin Margono**: Model Implementation
+- **Muhammad Rafie Al Habsyi Setiawan**: Dataset Collection
+- **Boy Aditya Rohmaulana**: Evaluation and Documentation
 
 ---
 
-## Instalasi dan Penggunaan
+## How to Run
 
-1. **Kloning repositori**:
-   ```bash
-   git clone https://github.com/RaffiArdhiN/Klasifikasi_Sentimen.git
-2. **Masuk ke direktori proyek**:
-   ```bash
-   cd Klasifikasi_Sentimen
-3. **Jalankan aplikasi**:
-   Gunakan Orange untuk membuka file alur kerja di orange_workflows/
-
-## Lisensi
-
-Proyek ini dilisensikan di bawah lisensi MIT.
+1. **Install Orange**:
+   - Ensure Orange is installed on your system. You can download it from [Orange's official website](https://orangedatamining.com/).
+2. **Open Workflow**:
+   - Load the provided `KlasifikasiSentimen.ows` file in Orange.
+3. **Data Input**:
+   - Use `datatrain.xlsx` for training and `datatest.xlsx` for testing by importing them into the Orange workflow.
+4. **View Results**:
+   - Analyze the results directly in Orange using the visualization and evaluation widgets.
