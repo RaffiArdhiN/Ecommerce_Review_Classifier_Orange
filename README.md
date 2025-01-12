@@ -60,10 +60,10 @@ The workflow follows these key steps:
 
 ## Contributors
 
-- **Raffi Ardhi Naufal**: Data Preprocessing and Tokenization
-- **Arya Aydin Margono**: Model Implementation
-- **Muhammad Rafie Al Habsyi Setiawan**: Dataset Collection
-- **Boy Aditya Rohmaulana**: Evaluation and Documentation
+- **Raffi Ardhi Naufal**: Data Preprocessing, Tokenization, Model Implementation, and Evaluation
+- **Arya Aydin Margono**: Dataset Collection and Documentation
+- **Muhammad Rafie Al Habsyi Setiawan**: Dataset Collection and Documentation
+- **Boy Aditya Rohmaulana**: Dataset Collection, Evaluation and Documentation
 
 ---
 
@@ -77,3 +77,7 @@ The workflow follows these key steps:
    - Use `datatrain.xlsx` for training and `datatest.xlsx` for testing by importing them into the Orange workflow.
 4. **View Results**:
    - Analyze the results directly in Orange using the visualization and evaluation widgets.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
