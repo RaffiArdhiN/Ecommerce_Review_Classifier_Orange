@@ -1,4 +1,4 @@
-# Sentiment Classification Project
+# Ecommerce Review Classifier Orange
 
 ![Header Image](header.png)
 
